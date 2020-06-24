@@ -17,6 +17,9 @@ const client = new Client({
   connectionString: process.env.DATABASE_URL,
   ssl: true
 });
+
+console.log('We are here')
+
 //connection query and creation tables
 client.connect();
 const db_creation_string = `CREATE TABLE IF NOT EXISTS invitations(id SERIAL PRIMARY KEY, created_at TIMESTAMP, updated_at TIMESTAMP, link TEXT, senderId TEXT, sendermsg TEXT, senderName TEXT, receiverId TEXT);
@@ -48,7 +51,7 @@ passport.use(
       clientID: process.env.clientID,
       clientSecret: process.env.clientSecret,
       callbackURL:
-        "https://invitation-system.herokuapp.com/auth/facebook/callback",
+        "https://referral-testing-01.herokuapp.com/auth/facebook/callback",
       profileFields: ["id", "displayName", "photos", "email"],
       enableProof: true
     },
